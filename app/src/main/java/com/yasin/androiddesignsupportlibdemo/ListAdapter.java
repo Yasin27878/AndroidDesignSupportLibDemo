@@ -1,6 +1,7 @@
 package com.yasin.androiddesignsupportlibdemo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +36,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public void onBindViewHolder(ListAdapter.ViewHolder holder, int position) {
         holder.mTvTitle.setText(mList.get(position));
         holder.mTvDesc.setText(mList.get(position));
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(mContext, DetailActivity.class);
+            mContext.startActivity(intent);
+        });
     }
 
     @Override
